@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                  const output = document.getElementById('output');
+const output = document.getElementById('output');
 const buttons = document.getElementById('buttons');
 
 // USE THIS LOG FUNCTION TO OUTPUT TO THE PAGE.
@@ -14,14 +14,15 @@ function clearLog() {
 
 const problems = [
   function problem1() {
-    // Problem 1:
-    // Create a class called Calculator with two methods:
-    //  - add(x, y): returns the sum of x and y
-    //  - subtract(x, y): returns the result of x minus y
-    // Then create an instance and call both methods.
-
-    // Write your class and code here
+    class Calculator {
+      add (x, y) { return x + y; }
+      subtract (x, y) { return x - y; }
+    }
+    const calc = new Calculator();
+    log("Add: " + calc.add(4, 2));
+    log("Subtract: " + calc.subtract(4, 2));
   },
+
   function problem2() {
     // Problem 2:
     // Create a class called Person with two methods:
@@ -29,15 +30,39 @@ const problems = [
     //  - getName(): returns the name
     // Then create an instance, set the name to your name, and log it using getName().
 
-    // Write your class and code here
+    class Person {
+      setName(name) {
+        this.name = name;
+      }
+      getName() {
+        return this.name;
+      }
+    }
+    const person = new Person();
+    person.setName("Karim Rivera-Apolinar");
+    log("Name: " + person.getName());
   },
+
   function problem3() {
     // Problem 3:
     // Create a class called Bird with a method fly() that logs "Flying"
     // Create a class called Penguin that extends Bird and overrides the fly() method to log "Penguins can't fly"
     // Then create one Bird and one Penguin, and call their fly() methods.
 
-    // Write your class and code here
+    class Bird {
+      fly() {
+        log("Flying");
+      }
+    }
+    class Penguin extends Bird {
+      fly() {
+        log("Penguins can't fly");
+      }
+    }
+    const bird = new Bird();
+    const penguin = new Penguin();
+    bird.fly();
+    penguin.fly();
   },
   function problem4() {
     // Problem 4:
@@ -46,8 +71,26 @@ const problems = [
     // - Circle's describe() method logs "I'm a circle"
     // - Square's describe() method logs "I'm a square"
     // Then create instances of Circle and Square and call their describe() methods.
-
-    // Write your class and code here
+    class Shape {
+      describe() {
+        log("I'm a shape");
+      }
+    }
+    class Circle extends Shape {
+      describe() {
+        log("I'm a circle");
+      }
+    }
+    class Square extends Shape {
+      describe() {
+        log("I'm a square");
+      }
+    }
+    const shape = new Shape();
+    const circle = new Circle();
+    const square = new Square();
+    circle.describe();
+    square.describe();
   },
   function problem5() {
     // Problem 5:
@@ -55,7 +98,20 @@ const problems = [
     // Create a subclass called Manager that has an additional method hireEmployee() that logs "Employee hired"
     // Then create an instance of Manager, and call both methods.
 
-    // Write your class and code here
+    class Employee {
+      work() {
+        log("Working...");
+      }
+    }
+    class Manager extends Employee {
+      hireEmployee() {
+        log("Employee hired");
+      }
+    }
+    const manager = new Manager();
+    const employee = new Employee();
+    manager.hireEmployee();
+    employee.work();
   }
 ];
 
